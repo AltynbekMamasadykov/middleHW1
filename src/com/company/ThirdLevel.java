@@ -14,10 +14,10 @@ public class ThirdLevel {
         int[] computerPredictions = new int[3];
         int[] computerDice = new int[3];
         int[] computerResults = new int[3];
+            System.out.println("---      Start game      ---");
 
         for (int i = 0; i < 3; i++) {
 
-            System.out.println("---      Start game      ---");
             System.out.println("Predict amount of points (2..12)");
             int userPrediction = scanner.nextInt();
             userPredictions[i] = userPrediction;
@@ -61,15 +61,22 @@ public class ThirdLevel {
 
         }
 
-        System.out.println("-----------------Finish Game -------------");
 
-        for (int i = 0; i < 3; i++) {
-            System.out.println("Round "+(i+1));
-            System.out.println("UserPredict:"+userPredictions[i]+"\nUserDice:"+userDice[i]+"\nUserResult:"+userResults[i]);
-            System.out.println("ComputerPredict:"+computerPredictions[i]+"\nComputerDice:"+computerDice[i]+"\nComputerResult:"+computerResults[i]);
-            System.out.println();
-
+        System.out.println();
+        System.out.println("------- Finish Game -------");
+        System.out.println();
+        System.out.println(" ROUND |           User |      Computer ");
+        int counter = 0;
+        for(int k = 0; k < 3; k++) {
+            System.out.println("-------+----------------+----------------");
+            System.out.println("       | Predicted:  " + userPredictions[counter] + "  | Predicted:  " + computerPredictions[counter]);
+            System.out.println(" - " + (k+1) + " - | Dice:       " + userDice[counter] + "  | Dice:       " + computerDice[counter]);
+            System.out.println("       | Result:     " + userResults[counter] + "  | Dice:       " + computerResults[counter]);
+            counter++;
         }
+
+        System.out.println("-------+----------------+----------------");
+
         int userTotal = Arrays.stream(userResults).sum();
         int computerTotal = Arrays.stream(computerResults).sum();
         System.out.println("Total points user:"+ userTotal+" Total points computer:"+computerTotal);
